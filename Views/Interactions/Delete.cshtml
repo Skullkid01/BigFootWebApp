@@ -1,0 +1,55 @@
+﻿@model BigFootWebApp.Models.Interaction
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Are you sure you want to delete this interaction ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InteractionDetail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InteractionDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DealValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DealValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+
+    </dl>
+
+    <br>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>

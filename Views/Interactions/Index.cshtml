@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BigFootWebApp.Models.Interaction>
+
+@{
+    ViewBag.Title = "Interactions";
+}
+
+
+<div class="card">
+    <div class="card-body p-2">
+        <h4>Interaction</h4>
+        <p>
+            <a class="btn btn-primary btn-lg active" data-ajax="true" data-ajax-url="@Url.Action("Create","Interactions")" data-ajax-success="Modal.PartialView">+ Add</a>
+        </p>
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateOn)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InteractionDetail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DealValue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Customer.CustomerName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateOn)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InteractionDetail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DealValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+                        </td>
+                        <td>
+                            <a class="btn btn-success btn-lg active" data-ajax="true" data-ajax-url="@Url.Action("Edit","Interactions" , new { id = item.Id })" data-ajax-success="Modal.PartialView">Edit</a>
+                            <a class="btn btn-info btn-lg active" data-ajax="true" data-ajax-url="@Url.Action("Details","Interactions" , new { id = item.Id})" data-ajax-success="Modal.PartialView">View</a>
+                            <a class="btn btn-danger btn-lg active" data-ajax="true" data-ajax-url="@Url.Action("Delete","Interactions" , new { id = item.Id })" data-ajax-success="Modal.PartialView">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}

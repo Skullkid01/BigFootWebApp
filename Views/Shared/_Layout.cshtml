@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="shortcut icon" href="/images/bf.jpg" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/css/profile/aos.css" rel="stylesheet" />
+    <link href="~/css/profile/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/profile/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/css/profile/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/css/profile/glightbox.css" rel="stylesheet" />
+    <link href="~/css/profile/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="~/css/profile/style.css" rel="stylesheet" />
+    <link href="~/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <title>@ViewData["Title"] - BigFootWebApp</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        #main {
+            background: url('../images/bc2.jpg') center;
+            min-height: 100vh;
+        }
+
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+
+        .topnav-right {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <div class="topnav-right">
+            <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">Log Out</a>
+        </div>
+    </div>
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header ======= -->
+
+    <header id="header">
+        <div class="d-flex flex-column">
+
+            <nav id="navbar" class="nav-menu navbar">
+                <ul>
+                    <li><a href=@Url.Action("Index","Home") class="nav-link scrollto"><i class=""></i> <span>Home</span></a></li>
+                    <li><a href=@Url.Action("Index","Customers") class="nav-link scrollto "><i class=""></i> <span>Customer</span></a></li>
+                    <li><a href=@Url.Action("Index","Interactions") class="nav-link scrollto "><i class=""></i> <span>Interaction</span></a></li>
+                    <li><a href=@Url.Action("SummaryView","Summary") class="nav-link scrollto "><i class=""></i> <span>Summary</span></a></li>
+                </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main" class="p-3">
+        @RenderBody()
+    </main><!-- End #main -->
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - BigFootWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <div id="generic-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog w3-animate-zoom" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="generic-modal-close" type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/js/profile/purecounter.js"></script>
+    <script src="~/js/profile/aos.js"></script>
+    <script src="~/js/profile/bootstrap.bundle.js"></script>
+    <script src="~/js/profile/glightbox.min.js"></script>
+    <script src="~/js/profile/isotope.pkgd.min.js"></script>
+    <script src="~/js/profile/swiper-bundle.min.js"></script>
+    <script src="~/js/profile/typed.min.js"></script>
+    <script src="~/js/profile/noframework.waypoints.js"></script>
+    <script src="~/js/profile/main.js"></script>
+    <script src="~/js/Modal.js"></script>
+    <script>
+        $(function () {
+            Modal.StartUp();
+        })
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

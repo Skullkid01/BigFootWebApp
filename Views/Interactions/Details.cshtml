@@ -1,0 +1,45 @@
+﻿@model BigFootWebApp.Models.Interaction
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Interaction Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InteractionDetail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InteractionDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DealValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DealValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+
+    </dl>
+</div>

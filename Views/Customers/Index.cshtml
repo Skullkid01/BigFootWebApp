@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BigFootWebApp.Models.Customer>
+
+@{
+    ViewBag.Title = "Customers";
+    string result = "";
+}
+
+<div class="card">
+    <div class="card-body p-2">
+        <h4>Customer</h4>
+        <p>
+            <a class="btn btn-primary btn-lg active" data-ajax="true" data-ajax-url="@Url.Action("Create","Customers")" data-ajax-success="Modal.PartialView">+ Add</a>
+        </p>
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CustomerName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CustomerAddress)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.IsActive == true)
+                    {
+                        result = "True";
+                    }
+                    else if (item.IsActive == false)
+                    {
+                        result = "False";
+                    }
+                    <tr>
+                        <td>
+                            @result
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CustomerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CustomerAddress)
+                        </td>
+                        <td>
+                            <a class="btn btn-success btn-lg active" data-ajax="true" data-ajax-url="@Url.Action("Edit","Customers" , new { id = item.Id })" data-ajax-success="Modal.PartialView">Edit</a>
+                            <a class="btn btn-info btn-lg active" data-ajax="true" data-ajax-url="@Url.Action("Details","Customers" , new { id = item.Id })" data-ajax-success="Modal.PartialView">View</a>
+                            <a class="btn btn-danger btn-lg active" data-ajax="true" data-ajax-url="@Url.Action("Delete","Customers" , new { id = item.Id })" data-ajax-success="Modal.PartialView">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}

@@ -1,0 +1,25 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Log out";
+}
+
+<header>
+
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+        <center>
+            <h1>@ViewData["Title"]</h1>
+            <br />
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit" class="nav-link btn btn-success text-dark">Logout Of BigFoot-IT</button>
+            </form>
+        </center>
+        }
+        else
+        {
+            <p>You have successfully logged out of the application.</p>
+        }
+    }
+</header>
